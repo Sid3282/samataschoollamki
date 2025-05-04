@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission - Samata Pathshala Kailali</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #4cc9f0;
+            --dark-color: #1a1a2e;
+            --light-color: #f8f9fa;
+            --text-color: #333333;
+            --text-light: #6c757d;
+            --white: #ffffff;
+            --black: #000000;
+            --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        body {
+            font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--white);
+        }
+
+        .nepali-text {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Admission Process Steps */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .step-desc {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        /* Admission Form */
+        .admission-form {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--gradient);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
+        }
+
+        /* Requirements Section */
+        .requirements {
+            margin-top: 60px;
+        }
+
+        .requirement-list {
+            list-style-type: none;
+        }
+
+        .requirement-list li {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .requirement-list li:before {
+            content: "•";
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-right: 15px;
+            line-height: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .process-steps {
+                flex-direction: column;
+            }
+            
+            .step {
+                margin-bottom: 30px;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Admission Header -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="nepali-text">भर्ना प्रक्रिया</span> / Admission Process
+                </h2>
+                <p class="section-subtitle">Join Our Family</p>
+            </div>
+
+            <!-- Admission Process Steps -->
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title nepali-text">आवेदन</h3>
+                    <p class="step-desc nepali-text">अनलाइन वा स्कुलमा फारम भर्नुहोस्</p>
+                    <p class="step-desc">Submit application form</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title nepali-text">परीक्षण</h3>
+                    <p class="step-desc nepali-text">लेख्ने र अन्तर्वार्ता</p>
+                    <p class="step-desc">Written test & interview</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title nepali-text">चयन</h3>
+                    <p class="step-desc nepali-text">नतिजा प्रकाशन</p>
+                    <p class="step-desc">Result publication</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title nepali-text">भर्ना</h3>
+                    <p class="step-desc nepali-text">शुल्क तिर्ने</p>
+                    <p class="step-desc">Fee payment & enrollment</p>
+                </div>
+            </div>
+
+            <!-- Admission Form -->
+            <div class="admission-form">
+                <h3 style="text-align: center; margin-bottom: 30px; color: var(--dark-color);">
+                    <span class="nepali-text">भर्ना फारम</span> / Admission Form
+                </h3>
+                
+                <form id="admissionForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label nepali-text">विद्यार्थीको नाम</label>
+                            <input type="text" class="form-control" placeholder="Student's Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label nepali-text">जन्म मिति</label>
+                            <input type="date" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label nepali-text">अभिभावकको नाम</label>
+                            <input type="text" class="form-control" placeholder="Parent's Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label nepali-text">सम्पर्क नम्बर</label>
+                            <input type="tel" class="form-control" placeholder="Contact Number" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label nepali-text">ठेगाना</label>
+                        <input type="text" class="form-control" placeholder="Address" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label nepali-text">कक्षा</label>
+                            <select class="form-control" required>
+                                <option value="">Select Grade</option>
+                                <option value="1">Class 1</option>
+                                <option value="2">Class 2</option>
+                                <option value="3">Class 3</option>
+                                <option value="4">Class 4</option>
+                                <option value="5">Class 5</option>
+                                <option value="6">Class 6</option>
+                                <option value="7">Class 7</option>
+                                <option value="8">Class 8</option>
+                                <option value="9">Class 9</option>
+                                <option value="10">Class 10</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label nepali-text">पूर्व विद्यालय</label>
+                            <input type="text" class="form-control" placeholder="Previous School">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label nepali-text">अतिरिक्त जानकारी</label>
+                        <textarea class="form-control" rows="4" placeholder="Additional Information"></textarea>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 30px;">
+                        <button type="submit" class="btn">
+                            <span class="nepali-text">पेश गर्नुहोस्</span> / Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Requirements Section -->
+            <div class="requirements">
+                <h3 style="text-align: center; margin-bottom: 30px; color: var(--dark-color);">
+                    <span class="nepali-text">आवश्यक कागजातहरू</span> / Required Documents
+                </h3>
+                
+                <ul class="requirement-list">
+                    <li class="nepali-text">जन्म दर्ताको प्रमाणपत्र (मूल प्रति)</li>
+                    <li class="nepali-text">पूर्व विद्यालयको लिखित प्रमाणपत्र</li>
+                    <li class="nepali-text">अभिभावकको नागरिकता प्रतिलिपि</li>
+                    <li class="nepali-text">२ वटा पासपोर्ट साइज फोटो</li>
+                    <li>Character Certificate (Original)</li>
+                    <li>Mark Sheet of Previous Class</li>
+                </ul>
+            </div>
+
+            <!-- Fee Structure -->
+            <div style="margin-top: 60px; background: #f8f9fa; padding: 30px; border-radius: 10px;">
+                <h3 style="text-align: center; margin-bottom: 30px; color: var(--dark-color);">
+                    <span class="nepali-text">शुल्क संरचना</span> / Fee Structure
+                </h3>
+                
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: var(--gradient); color: white;">
+                                <th style="padding: 15px; text-align: left;" class="nepali-text">कक्षा</th>
+                                <th style="padding: 15px; text-align: left;">Grade</th>
+                                <th style="padding: 15px; text-align: right;" class="nepali-text">मासिक शुल्क</th>
+                                <th style="padding: 15px; text-align: right;" class="nepali-text">वार्षिक शुल्क</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 15px;" class="nepali-text">१-५</td>
+                                <td style="padding: 15px;">1-5</td>
+                                <td style="padding: 15px; text-align: right;">Rs. 0.00</td>
+                                <td style="padding: 15px; text-align: right;">Rs. 0.00</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 15px;" class="nepali-text">६-८</td>
+                                <td style="padding: 15px;">6-8</td>
+                                <td style="padding: 15px; text-align: right;">Rs. 0.00</td>
+                                <td style="padding: 15px; text-align: right;">Rs. 0.00</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 15px;" class="nepali-text">९-१०</td>
+                                <td style="padding: 15px;">9-10</td>
+                                <td style="padding: 15px; text-align: right;">Rs. 0.00</td>
+                                <td style="padding: 15px; text-align: right;">Rs. 0.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <p style="text-align: center; margin-top: 20px; font-style: italic; color: var(--text-light);">
+                    <span class="nepali-text">* विशेष छूट स्कुल प्रशासनको निर्णय अनुसार</span><br>
+                    * Special discounts available as per school policy
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Form Submission
+        document.getElementById('admissionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your application! We will contact you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
