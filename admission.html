@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* Base Styles */
+        /* (Keep all the CSS from previous admission page) */
         :root {
             --primary-color: #4361ee;
             --secondary-color: #3a0ca3;
@@ -63,7 +63,6 @@
             letter-spacing: 2px;
         }
 
-        /* Admission Process Steps */
         .process-steps {
             display: flex;
             justify-content: space-between;
@@ -104,7 +103,6 @@
             font-size: 1rem;
         }
 
-        /* Admission Form */
         .admission-form {
             background-color: var(--white);
             border-radius: 10px;
@@ -166,7 +164,6 @@
             box-shadow: 0 10px 20px rgba(67, 97, 238, 0.3);
         }
 
-        /* Requirements Section */
         .requirements {
             margin-top: 60px;
         }
@@ -188,6 +185,23 @@
             font-size: 2rem;
             margin-right: 15px;
             line-height: 0;
+        }
+
+        /* Success Message */
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background: #f0fff4;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border: 1px solid #68d391;
+        }
+
+        .form-success i {
+            color: #68d391;
+            font-size: 3rem;
+            margin-bottom: 15px;
         }
 
         /* Responsive */
@@ -246,66 +260,74 @@
                 </div>
             </div>
 
-            <!-- Admission Form -->
+            <!-- Admission Form with Formspree Integration -->
             <div class="admission-form">
-                <h3 style="text-align: center; margin-bottom: 30px; color: var(--dark-color);">
-                    <span class="nepali-text">भर्ना फारम</span> / Admission Form
-                </h3>
+                <div id="formSuccess" class="form-success">
+                    <i class="fas fa-check-circle"></i>
+                    <h3 class="nepali-text">धन्यवाद!</h3>
+                    <p class="nepali-text">तपाईंको आवेदन सफलतापूर्वक पेश गरिएको छ। हामी चाँडै नै तपाईंसँग सम्पर्क गर्नेछौं।</p>
+                    <p>Thank you! Your application has been submitted successfully. We will contact you soon.</p>
+                </div>
                 
-                <form id="admissionForm">
+                <form id="admissionForm" action="https://formspree.io/f/mldbjvaa" method="POST">
                     <div class="form-row">
                         <div class="form-group">
                             <label class="form-label nepali-text">विद्यार्थीको नाम</label>
-                            <input type="text" class="form-control" placeholder="Student's Name" required>
+                            <input type="text" name="student_name" class="form-control" placeholder="Student's Name" required>
                         </div>
                         <div class="form-group">
                             <label class="form-label nepali-text">जन्म मिति</label>
-                            <input type="date" class="form-control" required>
+                            <input type="date" name="birth_date" class="form-control" required>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label class="form-label nepali-text">अभिभावकको नाम</label>
-                            <input type="text" class="form-control" placeholder="Parent's Name" required>
+                            <input type="text" name="parent_name" class="form-control" placeholder="Parent's Name" required>
                         </div>
                         <div class="form-group">
                             <label class="form-label nepali-text">सम्पर्क नम्बर</label>
-                            <input type="tel" class="form-control" placeholder="Contact Number" required>
+                            <input type="tel" name="contact_number" class="form-control" placeholder="Contact Number" required>
                         </div>
                     </div>
 
                     <div class="form-group">
+                        <label class="form-label nepali-text">ईमेल</label>
+                        <input type="email" name="email" class="form-control" placeholder="Email Address">
+                    </div>
+
+                    <div class="form-group">
                         <label class="form-label nepali-text">ठेगाना</label>
-                        <input type="text" class="form-control" placeholder="Address" required>
+                        <input type="text" name="address" class="form-control" placeholder="Address" required>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
                             <label class="form-label nepali-text">कक्षा</label>
-                            <select class="form-control" required>
+                            <select class="form-control" name="grade" required>
                                 <option value="">Select Grade</option>
-                                <option value="1">Class 1</option>
-                                <option value="2">Class 2</option>
-                                <option value="3">Class 3</option>
-                                <option value="4">Class 4</option>
-                                <option value="5">Class 5</option>
-                                <option value="6">Class 6</option>
-                                <option value="7">Class 7</option>
-                                <option value="8">Class 8</option>
-                                <option value="9">Class 9</option>
-                                <option value="10">Class 10</option>
+                                <option value="Class 1">Class 1</option>
+                                <option value="Class 2">Class 2</option>
+                                <option value="Class 3">Class 3</option>
+                                <option value="Class 4">Class 4</option>
+                                <option value="Class 5">Class 5</option>
+                                <option value="Class 6">Class 6</option>
+                                <option value="Class 7">Class 7</option>
+                                <option value="Class 8">Class 8</option>
+                                <option value="Class 9">Class 9</option>
+                                <option value="Class 10">Class 10</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label class="form-label nepali-text">पूर्व विद्यालय</label>
-                            <input type="text" class="form-control" placeholder="Previous School">
+                            <input type="text" name="previous_school" class="form-control" placeholder="Previous School">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label nepali-text">अतिरिक्त जानकारी</label>
-                        <textarea class="form-control" rows="4" placeholder="Additional Information"></textarea>
+                        <textarea class="form-control" name="additional_info" rows="4" placeholder="Additional Information"></textarea>
                     </div>
 
                     <div style="text-align: center; margin-top: 30px;">
@@ -352,20 +374,20 @@
                             <tr style="border-bottom: 1px solid #eee;">
                                 <td style="padding: 15px;" class="nepali-text">१-५</td>
                                 <td style="padding: 15px;">1-5</td>
-                                <td style="padding: 15px; text-align: right;">Rs. 0.00</td>
-                                <td style="padding: 15px; text-align: right;">Rs. 0.00</td>
+                                <td style="padding: 15px; text-align: right;">Rs. 1,500</td>
+                                <td style="padding: 15px; text-align: right;">Rs. 5,000</td>
                             </tr>
                             <tr style="border-bottom: 1px solid #eee;">
                                 <td style="padding: 15px;" class="nepali-text">६-८</td>
                                 <td style="padding: 15px;">6-8</td>
-                                <td style="padding: 15px; text-align: right;">Rs. 0.00</td>
-                                <td style="padding: 15px; text-align: right;">Rs. 0.00</td>
+                                <td style="padding: 15px; text-align: right;">Rs. 2,000</td>
+                                <td style="padding: 15px; text-align: right;">Rs. 7,000</td>
                             </tr>
                             <tr>
                                 <td style="padding: 15px;" class="nepali-text">९-१०</td>
                                 <td style="padding: 15px;">9-10</td>
-                                <td style="padding: 15px; text-align: right;">Rs. 0.00</td>
-                                <td style="padding: 15px; text-align: right;">Rs. 0.00</td>
+                                <td style="padding: 15px; text-align: right;">Rs. 2,500</td>
+                                <td style="padding: 15px; text-align: right;">Rs. 9,000</td>
                             </tr>
                         </tbody>
                     </table>
@@ -380,11 +402,39 @@
     </section>
 
     <script>
-        // Form Submission
-        document.getElementById('admissionForm').addEventListener('submit', function(e) {
+        // Form Submission with Formspree
+        document.getElementById('admissionForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-            alert('Thank you for your application! We will contact you soon.');
-            this.reset();
+            
+            const form = e.target;
+            const formData = new FormData(form);
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Show success message
+                    document.getElementById('formSuccess').style.display = 'block';
+                    form.style.display = 'none';
+                    form.reset();
+                    
+                    // Scroll to success message
+                    document.getElementById('formSuccess').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                alert('There was a problem submitting your form. Please try again later.');
+                console.error('Error:', error);
+            }
         });
     </script>
 </body>
